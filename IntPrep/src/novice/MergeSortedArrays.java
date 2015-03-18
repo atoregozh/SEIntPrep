@@ -10,9 +10,9 @@ public class MergeSortedArrays {
 
 		int indexA = 0, indexB = 0, indexAB = 0;
 		int[] arrAB = new int[arrA.length + arrB.length];
-		System.out.println("AB length is " + arrAB.length);
-		System.out.println("A length is " + arrA.length);
-		System.out.println("B length is " + arrB.length);
+//		System.out.println("AB length is " + arrAB.length);
+//		System.out.println("A length is " + arrA.length);
+//		System.out.println("B length is " + arrB.length);
 		while (indexAB < arrAB.length) {
 			if (indexA < arrA.length && indexB < arrB.length) {
 				if (arrA[indexA] >= arrB[indexB]) {
