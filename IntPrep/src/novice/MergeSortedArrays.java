@@ -10,9 +10,11 @@ public class MergeSortedArrays {
 
 		int indexA = 0, indexB = 0, indexAB = 0;
 		int[] arrAB = new int[arrA.length + arrB.length];
-
-		while (indexAB <= arrAB.length) {
-			if (indexAB <= arrA.length && indexAB <= arrB.length) {
+		System.out.println("AB length is " + arrAB.length);
+		System.out.println("A length is " + arrA.length);
+		System.out.println("B length is " + arrB.length);
+		while (indexAB < arrAB.length) {
+			if (indexA < arrA.length && indexB < arrB.length) {
 				if (arrA[indexA] >= arrB[indexB]) {
 					arrAB[indexAB] = arrB[indexB];
 					indexB++;
@@ -23,14 +25,14 @@ public class MergeSortedArrays {
 				indexAB++;
 				continue;
 			}
-			if (indexAB <= arrA.length) {
+			if (indexA < arrA.length) {
 				arrAB[indexAB] = arrA[indexA];
 				indexA++;
 				indexAB++;
 				continue;
 			}
-			if (indexAB <= arrB.length) {
-				arrAB[indexAB] = arrA[indexB];
+			if (indexB < arrB.length) {
+				arrAB[indexAB] = arrB[indexB];
 				indexB++;
 				indexAB++;
 				continue;
@@ -40,8 +42,8 @@ public class MergeSortedArrays {
 	}
 
 	public static void main(String[] args) {
-		int[] arr1 = {1,2,3,4};
-		int[] arr2 = {2,6,9};
+		int[] arr1 = {1,2,5,6};
+		int[] arr2 = {-2,-1,2};
 		int [] result = mergeArrays(arr1, arr2);
 		System.out.println(Arrays.toString(result));
 	}
