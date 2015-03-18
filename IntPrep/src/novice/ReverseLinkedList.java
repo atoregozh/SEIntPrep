@@ -1,5 +1,5 @@
 package novice;
-
+// TODO fix recursive code
 public class ReverseLinkedList {
 	
 	class Node {
@@ -23,6 +23,7 @@ public class ReverseLinkedList {
 		Node last = current.next;  //current here is node before the last
 		last.next = current; //make last node point to node before the last
 		current.next = null;
+		return current;
 	}
 	
 	public Node reverseLLiterative(Node head) {
