@@ -1,4 +1,4 @@
-package interview;
+package novice;
 
 public class ReverseLinkedList {
 	

@@ -1,4 +1,4 @@
-package interview;
+package adept;
 
 import java.lang.Integer;
 import java.util.Arrays;

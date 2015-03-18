@@ -1,4 +1,4 @@
-package interview;
+package novice;
 
 public class CountZeros {
 	//given a sorted array of 0's and 1's, find the number of 0's. Write recursive & iterative versions

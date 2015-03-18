@@ -1,4 +1,4 @@
-package interview;
+package novice;
 
 import java.io.*;
 
