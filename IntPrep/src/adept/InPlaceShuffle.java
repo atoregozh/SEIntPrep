@@ -46,12 +46,26 @@ public class InPlaceShuffle {
 		Random r = new Random();
 		return r.nextInt(ceiling - floor) + floor;
 	}
-
+    //TESTING
 	public static void main(String[] args) {
 		int[] arr = {1,4,2,8,126,5};
+		System.out.println(Arrays.toString(arr));
 		int[] result = shuffle(arr);
 		System.out.println(Arrays.toString(result));
 
 	}
 
+	/*
+	 How NOT to solve a problem: A common first idea is to walk through 
+	 the array and swap each element with a random other element. 
+	 However, this does not give a random distribution.
+	 Why? Suppose our array had 3 elements: [a,b,c].
+	 This means it'll make 3 calls to getRandom(0,2). That's 3 random choices, 
+	 each with 3 possibilities. So our total number of possible sets of choices 
+	 is 3∗3∗3=27. Each of these 27 sets of choices is equally probable. 
+	 But how many possible outcomes do we have? The answer is 3!, which is 6.
+	 But our function has 27 equally-probable sets of choices. 27 is not evenly 
+	 divisible by 6. So some of our 6 possible outcomes will be achievable with 
+	 more sets of choices than others. 
+	 */
 }
