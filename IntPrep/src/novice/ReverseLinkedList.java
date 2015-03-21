@@ -1,29 +1,50 @@
 package novice;
-// TODO fix recursive code
-public class ReverseLinkedList {
+
+class Node {
+	Node next;
+	int data;
 	
-	class Node {
-		Node next;
-		int data;
-		
-		public Node(int d,Node n) {
-			data = d;
-			next =n;
-		}
+	public Node(int d,Node n) {
+		data = d;
+		next =n;
 	}
 	
+	public String toString() {
+		StringBuffer s = new StringBuffer();
+		Node temp = this; //why use temp? because don't want to lose reference for head
+		while (temp!=null) {
+			s.append(temp.data);
+			s.append("->");
+			temp = temp.next;
+		}
+		return s.toString();
+	}
+}
+
+public class ReverseLinkedList {
+	
 	public Node reverseLLrecursive(Node head) {
-		//https://www.youtube.com/watch?v=KYH83T4q6Vs&index=11&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P
+		//What is the reverse of null (the empty list)? null.
+		if(head==null) {
+			return null;
+		}
+		//What is the reverse of a one element list? the element.
 		if(head.next==null) {
 			return head;
 		}
-		Node remainingReverse = reverseLLrecursive(head.next);
-		// gets called after base cases' if statement
-		Node current = remainingReverse;
-		Node last = current.next;  //current here is node before the last
-		last.next = current; //make last node point to node before the last
-		current.next = null;
-		return current;
+		
+		Node nextElem = head.next;
+		
+		 // bug fix - need to unlink list from the rest or you will get a cycle
+		head.next =null;
+		
+		// then we reverse everything from the second element on
+		Node tail = reverseLLrecursive(nextElem);
+		
+		// then we join the two lists
+		nextElem.next = head;
+		
+		return tail;
 	}
 	
 	public Node reverseLLiterative(Node head) {
@@ -42,23 +63,22 @@ public class ReverseLinkedList {
 		return head;
 	}
 	
-	Node head;
-	public void insert(int data) {
+	public void insert(int data, Node head) {
 		Node newNode = new Node(data,null);
 		newNode.next=head;
 		head = newNode;
 	}
 	
-	public void printLL() {
-		Node temp = head; //why use head? because don't want to lose reference for head
-		while (temp!=null) {
-			System.out.print(temp.data);
-			temp = temp.next;
-		}
-		System.out.println("");
-	}
+	
 	
 	public static void main(String[] args) {
+		Node n3 = new Node(3, null);
+		Node n2 = new Node(2, n3);
+		Node n1 = new Node(1, n2);
+		Node n0 = new Node(0, n1);
+		System.out.println(n0);
+		Node reversed = new ReverseLinkedList().reverseLLrecursive(n0);
+
 		
 	}
 
