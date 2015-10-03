@@ -55,13 +55,13 @@ public class MinNumberSteps {
 
     public static void main(String[] args) {
         List<Integer> X1 = Arrays.asList(0,1,1);
-        List<Integer> Y1 = Arrays.asList(0,1,2);
-        int numSteps1 = coverPoints(X1,Y1);
+        List<Integer> Y1 = Arrays.asList(0, 1, 2);
+        int numSteps1 = coverPoints(X1, Y1);
         System.out.println(numSteps1);
 
         List<Integer> X2 = Arrays.asList(4, 8, -7, -5, -13, 9, -7, 8);
         List<Integer> Y2 = Arrays.asList(4, -15, -10, -3, -13, 12, 8, -8);
-        int numSteps2 = coverPoints(X2,Y2);
+        int numSteps2 = coverPoints(X2, Y2);
         System.out.println(numSteps2);
     }
 }
