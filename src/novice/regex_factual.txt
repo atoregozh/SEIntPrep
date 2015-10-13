@@ -1,0 +1,21 @@
+Salt and Straw                               http://www.yelp.com/biz/salt-and-straw-los-angeles
+Smitty’s Famous Fish and Chicken             http://www.yelp.com/biz/smittys-famous-fish-and-chicken-culver-city
+Zankou Chicken                               http://www.yelp.com/biz/zankou-chicken-glendale-2
+Chego                                        http://www.yelp.com/biz/chego-los-angeles-5
+Ambala Dhaba (in Los Angeles)                http://www.yelp.com/biz/ambala-dhaba-homestyle-indian-los-angeles
+Colony Cafe                                  http://www.yelp.com/biz/the-colony-cafe-los-angeles
+
+
+
+Name                                        (?s)itemprop="name">\s+(.+?)\s+<
+City, State Zip                             (?s)<address>.+?,\s+(.+?)\s+<
+Address Street Number                       (?s)<address>\s+(.+?),
+Phone number                                (?s)hone">\s+(.+?)\s+<
+Website (if exists)                         _blank">\s+(.+?)\s+<
+Price range                                 description">\s+(.+?)\s+<
+Neighborhood                                borhood-str-list">\s+(.+?)\s+<
+Review Count                                wCount">(.+?)<
+Restaurant Categories						y-str-list"<a[^>]*>(.*?)</a>      //DOESN'T WORK YET
+
+
+
