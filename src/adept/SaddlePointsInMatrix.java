@@ -1,5 +1,8 @@
 package adept;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by aizhan on 10/15/15.
  */
@@ -37,5 +40,92 @@ public class SaddlePointsInMatrix {
 
     */
 
-    
+    public static int solution(int[][] A, int N, int M) {
+        int saddlePoints = 0;
+        for (int row = 0; row < N; ++row) {
+            for (int column = 0; column < M; ++column) {
+                if(isLocalMinInRow(A[row][column], row, A) && isLocalMaxInColumn(A[row][column], column, A)) {
+                    System.out.println(A[row][column]);
+                    saddlePoints++;
+                } else if(isLocalMaxInRow(A[row][column], row, A) && isLocalMinInColumn(A[row][column], column, A)) {
+                    System.out.println(A[row][column]);
+                    saddlePoints++;
+                } else {
+                    continue;
+                }
+            }
+        }
+        return saddlePoints;
+    }
+
+    private static boolean isLocalMinInRow(int numberToVerifyMin, int rowNumber, int[][] A) {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < A.length; ++i) {
+            if(A[rowNumber][i] < min) {
+                min = A[rowNumber][i];
+            }
+        }
+        if (min == numberToVerifyMin) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static boolean isLocalMaxInRow(int numberToVerifyMin, int rowNumber, int[][] A) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < A.length; ++i) {
+            if(A[rowNumber][i] > max) {
+                max = A[rowNumber][i];
+            }
+        }
+        if (max == numberToVerifyMin) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static boolean isLocalMaxInColumn(int numberToVerifyMin, int columnNumber, int[][] A) {
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < A[0].length; ++i) {
+            //System.out.println(A[i].length);
+            if((A[i][columnNumber]) > max) {
+                max = A[i][columnNumber];
+            }
+        }
+        if (max == numberToVerifyMin) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private static boolean isLocalMinInColumn(int numberToVerifyMin, int columnNumber, int[][] A) {
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < A[0].length; ++i) {
+            if((A[i][columnNumber]) < min) {
+                min = A[i][columnNumber];
+            }
+        }
+        if (min == numberToVerifyMin) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public static void main(String[] args) {
+        int[][] matrix = new int[][] {
+                { 0, 1,   9, 3,  },
+                { 7, 5,   8, 3,  },
+
+                { 9, 2,   9, 4,  },
+                { 4, 6,   7, 1,  },
+
+        };
+
+        System.out.println(solution(matrix, 4,4));
+    }
 }
