@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Created by aizhan on 10/12/15.
  */
-public class HubSpot2 {
+public class PalindromizeString {
 
     static String[] palindromize(String[] words) {
         String[] result = new String[words.length];

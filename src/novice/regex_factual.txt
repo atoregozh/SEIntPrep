@@ -1,21 +1,30 @@
-Salt and Straw                               http://www.yelp.com/biz/salt-and-straw-los-angeles
-Smitty’s Famous Fish and Chicken             http://www.yelp.com/biz/smittys-famous-fish-and-chicken-culver-city
-Zankou Chicken                               http://www.yelp.com/biz/zankou-chicken-glendale-2
-Chego                                        http://www.yelp.com/biz/chego-los-angeles-5
-Ambala Dhaba (in Los Angeles)                http://www.yelp.com/biz/ambala-dhaba-homestyle-indian-los-angeles
-Colony Cafe                                  http://www.yelp.com/biz/the-colony-cafe-los-angeles
+Restaurant									URL	
+Salt and Straw                              http://www.yelp.com/biz/salt-and-straw-los-angeles
+Smitty’s Famous Fish and Chicken            http://www.yelp.com/biz/smittys-famous-fish-and-chicken-culver-city
+Zankou Chicken                              http://www.yelp.com/biz/zankou-chicken-glendale-2
+Chego                                       http://www.yelp.com/biz/chego-los-angeles-5
+Ambala Dhaba (in Los Angeles)               http://www.yelp.com/biz/ambala-dhaba-homestyle-indian-los-angeles 
+Colony Cafe                                 http://www.yelp.com/biz/the-colony-cafe-los-angeles
 
 
 
+Restaurant Attribute						Regex
 Name                                        (?s)itemprop="name">\s+(.+?)\s+<
-City, State Zip                             (?s)<address>.+?,\s+(.+?)\s+<
-Address Street Number                       (?s)<address>\s+(.+?),
+Address: City, State Zip                    (?s)<address>.+?,\s+(.+?)\s+<
+Address: Street Number                      (?s)<address>\s+(.+?),
 Phone number                                (?s)hone">\s+(.+?)\s+<
-Website (if exists)                         _blank">\s+(.+?)\s+<
+Website (if available)                      _blank">(.+?)<
 Price range                                 description">\s+(.+?)\s+<
 Neighborhood                                borhood-str-list">\s+(.+?)\s+<
-Review Count                                wCount">(.+?)<
-Restaurant Categories						y-str-list"<a[^>]*>(.*?)</a>      //DOESN'T WORK YET
+Number of Revies                            wCount">(.+?)<
 
 
+Notes
+Dear Data Engineer hiring manager,
 
+Thank you for the challenge! I haven't used regexes before, but after some digging and research, I realized their strong power. For the Data Science class that I'm taking, I was working on an assignment where we were using python's Beautiful Soup library to parse the web pages, but seems like using regexes could be easier. Thanks for teaching me something new!
+
+I also wanted to note that the regex for website would return 'no match' for Smitty’s Famous Fish and Chicken and Ambala Dhaba (in Los Angeles) because they don't have a website listed on Yelp's page. That regex works for all other restaurants though.
+
+Thanks,
+Aizhan

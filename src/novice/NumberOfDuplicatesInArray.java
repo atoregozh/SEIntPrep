@@ -3,7 +3,7 @@ package novice;
 /**
  * Created by aizhan on 10/12/15.
  */
-public class HubSpot1 {
+public class NumberOfDuplicatesInArray {
 
     static int findDuplicates(int[] v) {
         if(v == null || v.length < 2) {
