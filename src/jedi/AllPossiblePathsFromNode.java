@@ -23,13 +23,11 @@ public class AllPossiblePathsFromNode {
                 result.add(curr.toString());
                 continue;
             }
-
-            if(curr != null) { //NOT sure about this if
-                for (Character neighbor : graph.get(curr.charAt(curr.length() - 1))) {
-                    StringBuilder sbNew = new StringBuilder(curr);
-                    stack.push(sbNew.append(neighbor));
-                }
+            for (Character neighbor : graph.get(curr.charAt(curr.length() - 1))) {
+                StringBuilder sbNew = new StringBuilder(curr);
+                stack.push(sbNew.append(neighbor));
             }
+
         }
         return result;
 
