@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by aizhan on 10/25/15.
  */
-public class AllPossiblePathsFromNodeInUndirectedGraph {
+public class AllPossiblePathsFromNode {
 
     public static Set<String> findAllPossiblePaths(Knight k, char startElem) {
 
