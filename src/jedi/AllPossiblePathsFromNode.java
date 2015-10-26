@@ -18,12 +18,10 @@ public class AllPossiblePathsFromNode {
         while (!stack.isEmpty()) {
             StringBuilder curr = stack.pop();
 
-            while (curr.length() == 7 && !stack.isEmpty()) {
+            if (curr.length() == 7) {
                 curr.insert(3,'-');
                 result.add(curr.toString());
-                if(curr != null) { //NOT sure about this if
-                    curr = stack.pop();
-                }
+                continue;
             }
 
             if(curr != null) { //NOT sure about this if
@@ -40,6 +38,7 @@ public class AllPossiblePathsFromNode {
     public static void main(String[] args) {
         Knight k = new Knight();
         Set<String> result = findAllPossiblePaths(k, '3');
+        System.out.println(result.size() + " numbers");
         for(String s: result) {
             System.out.println(s);
         }
