@@ -5,6 +5,7 @@ import java.util.List;
 
 public class PalindromeNumber {
     /**
+     * From LeetCode Easy
      * Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
      *
      * Example 1:
@@ -28,6 +29,16 @@ public class PalindromeNumber {
      */
 
     static boolean isPalindrome(int x) {
+
+        /**
+         * All negative numbers are not palindrome,
+         * for example: -123 is not a palindrome since the '-' does not equal to '3'.
+         * So we can return false for all negative numbers.
+         */
+        if (x < 0) {
+            return false;
+        }
+        
         List<Integer> digits = new ArrayList<>();
 
         for (; x != 0; x /= 10) {
@@ -36,10 +47,6 @@ public class PalindromeNumber {
             if (x < 0) {
                 x = x * (-1);
             }
-        }
-
-        if (digits.size() == 1 && digits.get(0) > 0) {
-            return true;
         }
 
         int[] digitsArr = new int[digits.size()];
@@ -57,9 +64,6 @@ public class PalindromeNumber {
             j--;
         }
 
-        if (digits.size() == 1 && digits.get(0) < 0) {
-            return false;
-        }
         return true;
     }
 
